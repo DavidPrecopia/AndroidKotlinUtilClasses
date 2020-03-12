@@ -1,7 +1,3 @@
-/*
- * Base class
- */
-
 import android.os.Looper
 import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
