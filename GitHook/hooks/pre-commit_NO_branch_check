@@ -1,0 +1,21 @@
+#!/bin/sh
+
+globalEmail=`git config --global --get user.email`
+signingKey=`git config --global --get user.signingkey`
+workEmail="35779726+DavidPrecopia@users.noreply.github.com"
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [[ $globalEmail != $workEmail ]];
+then
+        echo "Commit email and global git config email differ"
+        echo "Global commit email: "$globalEmail""
+        echo "Committing email expected: $workEmail"
+        exit 1
+elif [[ $signingKey -eq "" ]];
+then
+        echo "No signing key found. Check global gitconfig"
+        exit 1
+else
+				exit 0
+fi
