@@ -1,0 +1,4 @@
+/build
+/src/main/gen/
+/src/debug/google-services.json
+/src/release/google-services.json
