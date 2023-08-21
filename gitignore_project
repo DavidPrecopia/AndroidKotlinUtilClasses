@@ -3,9 +3,12 @@
 /local.properties
 /.idea/
 .DS_Store
+/app/.DS_Store
+/app/release/
 /build
 /captures
 .externalNativeBuild
-
-lists_keystore.jks
+.cxx
+local.properties
+/app/xyz_keystore.jks
 keystore.properties
