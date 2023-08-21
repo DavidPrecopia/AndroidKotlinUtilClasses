@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Restore keystore.properties
+      run: |
+        echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc
+        gpg -d --passphrase "${{ secrets.KEYSTORE_PROPERTIES_PASSPHRASE }}" --batch keystore.properties.asc > keystore.properties
+    - name: Restore keystore.jsk
+      run: |
+        echo "${{ secrets.KEYSTORE_JKS }}" > shiftscheduler_keystore.jks.asc
+        gpg -d --passphrase "${{ secrets.KEYSTORE_JKS_PASSPHRASE }}" --batch shiftscheduler_keystore.jks.asc > app/shiftscheduler_keystore.jks
     - name: Restore debug google-services.json
       run: |
         echo "${{ secrets.GOOGLE_SERVICES_JSON_DEBUG }}" > google-services-debug.json.asc
